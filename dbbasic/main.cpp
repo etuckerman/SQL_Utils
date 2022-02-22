@@ -61,6 +61,7 @@ int main()
 		sqlite3_free(zErrMsg);
 	}
 
+
 	//Display the names of all tables, title "Tables in Chinook"
 
 	RunQuery("Tables in Chinook", "SELECT name FROM sqlite_master WHERE type = 'table'", *db);
