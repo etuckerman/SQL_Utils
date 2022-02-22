@@ -1,0 +1,344 @@
+Database starter app
+Tables in Chinook
+
+Run SQL=> 
+SELECT name FROM sqlite_master WHERE type = 'table'
+name = albums
+
+name = sqlite_sequence
+
+name = artists
+
+name = customers
+
+name = employees
+
+name = genres
+
+name = invoices
+
+name = invoice_items
+
+name = media_types
+
+name = playlists
+
+name = playlist_track
+
+name = tracks
+
+name = sqlite_stat1
+
+Finished OK
+Fields in Customers
+
+Run SQL=> 
+SELECT name FROM pragma_table_info('invoices')
+name = InvoiceId
+
+name = CustomerId
+
+name = InvoiceDate
+
+name = BillingAddress
+
+name = BillingCity
+
+name = BillingState
+
+name = BillingCountry
+
+name = BillingPostalCode
+
+name = Total
+
+Finished OK
+Customer info for Julia Barnett
+
+Run SQL=> 
+SELECT * FROM CUSTOMERS WHERE FirstName = "Julia" AND LastName = "Barnett"
+CustomerId = 28
+FirstName = Julia
+LastName = Barnett
+Company = NULL
+Address = 302 S 700 E
+City = Salt Lake City
+State = UT
+Country = USA
+PostalCode = 84102
+Phone = +1 (801) 531-7272
+Fax = NULL
+Email = jubarnett@gmail.com
+SupportRepId = 5
+
+Finished OK
+Money spent by Julia
+
+Run SQL=> 
+SELECT Total, InvoiceDate FROM customers INNER JOIN Invoices ON Customers.CustomerID = Invoices.CustomerID WHERE FirstName = "Julia" AND LastName = "Barnett" UNION SELECT SUM(Total) as `Final Total`, NULL FROM customers INNER JOIN invoices ON Customers.CustomerID = Invoices.CustomerID WHERE FirstName = "Julia" AND LastName = "Barnett"
+Total = 0.99
+InvoiceDate = 2013-05-19 00:00:00
+
+Total = 1.98
+InvoiceDate = 2009-11-07 00:00:00
+
+Total = 1.98
+InvoiceDate = 2012-03-24 00:00:00
+
+Total = 3.96
+InvoiceDate = 2012-06-26 00:00:00
+
+Total = 8.91
+InvoiceDate = 2010-08-18 00:00:00
+
+Total = 11.94
+InvoiceDate = 2012-09-28 00:00:00
+
+Total = 13.86
+InvoiceDate = 2009-12-18 00:00:00
+
+Total = 43.62
+InvoiceDate = NULL
+
+Finished OK
+How much each customer has been charged
+
+Run SQL=> 
+SELECT SUM(Total) as SumTotal, FirstName, LastName FROM Invoices INNER JOIN Customers ON Invoices.CustomerID = Customers.CustomerID GROUP BY Customers.CustomerID ORDER BY SumTotal DESC
+SumTotal = 49.62
+FirstName = Helena
+LastName = HolÃ½
+
+SumTotal = 47.62
+FirstName = Richard
+LastName = Cunningham
+
+SumTotal = 46.62
+FirstName = Luis
+LastName = Rojas
+
+SumTotal = 45.62
+FirstName = Ladislav
+LastName = KovÃ¡cs
+
+SumTotal = 45.62
+FirstName = Hugh
+LastName = O'Reilly
+
+SumTotal = 43.62
+FirstName = Julia
+LastName = Barnett
+
+SumTotal = 43.62
+FirstName = Frank
+LastName = Ralston
+
+SumTotal = 43.62
+FirstName = Fynn
+LastName = Zimmermann
+
+SumTotal = 42.62
+FirstName = Astrid
+LastName = Gruber
+
+SumTotal = 42.62
+FirstName = Victor
+LastName = Stevens
+
+SumTotal = 41.62
+FirstName = Terhi
+LastName = HÃ¤mÃ¤lÃ¤inen
+
+SumTotal = 40.62
+FirstName = FrantiÅ¡ek
+LastName = WichterlovÃ¡
+
+SumTotal = 40.62
+FirstName = Isabelle
+LastName = Mercier
+
+SumTotal = 40.62
+FirstName = Johannes
+LastName = Van der Berg
+
+SumTotal = 39.62
+FirstName = Jack
+LastName = Smith
+
+SumTotal = 39.62
+FirstName = JoÃ£o
+LastName = Fernandes
+
+SumTotal = 39.62
+FirstName = LuÃ­s
+LastName = GonÃ§alves
+
+SumTotal = 39.62
+FirstName = FranÃ§ois
+LastName = Tremblay
+
+SumTotal = 39.62
+FirstName = BjÃ¸rn
+LastName = Hansen
+
+SumTotal = 39.62
+FirstName = Dan
+LastName = Miller
+
+SumTotal = 39.62
+FirstName = Heather
+LastName = Leacock
+
+SumTotal = 39.62
+FirstName = Wyatt
+LastName = Girard
+
+SumTotal = 38.62
+FirstName = Jennifer
+LastName = Peterson
+
+SumTotal = 38.62
+FirstName = Tim
+LastName = Goyer
+
+SumTotal = 38.62
+FirstName = Camille
+LastName = Bernard
+
+SumTotal = 38.62
+FirstName = Dominique
+LastName = Lefebvre
+
+SumTotal = 38.62
+FirstName = Joakim
+LastName = Johansson
+
+SumTotal = 38.62
+FirstName = Manoj
+LastName = Pareek
+
+SumTotal = 37.62
+FirstName = Leonie
+LastName = KÃ¶hler
+
+SumTotal = 37.62
+FirstName = Kara
+LastName = Nielsen
+
+SumTotal = 37.62
+FirstName = Eduardo
+LastName = Martins
+
+SumTotal = 37.62
+FirstName = Alexandre
+LastName = Rocha
+
+SumTotal = 37.62
+FirstName = Fernanda
+LastName = Ramos
+
+SumTotal = 37.62
+FirstName = Mark
+LastName = Philips
+
+SumTotal = 37.62
+FirstName = Michelle
+LastName = Brooks
+
+SumTotal = 37.62
+FirstName = Patrick
+LastName = Gray
+
+SumTotal = 37.62
+FirstName = Edward
+LastName = Francis
+
+SumTotal = 37.62
+FirstName = Martha
+LastName = Silk
+
+SumTotal = 37.62
+FirstName = Aaron
+LastName = Mitchell
+
+SumTotal = 37.62
+FirstName = Madalena
+LastName = Sampaio
+
+SumTotal = 37.62
+FirstName = Hannah
+LastName = Schneider
+
+SumTotal = 37.62
+FirstName = Niklas
+LastName = SchrÃ¶der
+
+SumTotal = 37.62
+FirstName = Marc
+LastName = Dubois
+
+SumTotal = 37.62
+FirstName = Lucas
+LastName = Mancini
+
+SumTotal = 37.62
+FirstName = StanisÅ‚aw
+LastName = WÃ³jcik
+
+SumTotal = 37.62
+FirstName = Emma
+LastName = Jones
+
+SumTotal = 37.62
+FirstName = Phil
+LastName = Hughes
+
+SumTotal = 37.62
+FirstName = Mark
+LastName = Taylor
+
+SumTotal = 37.62
+FirstName = Diego
+LastName = GutiÃ©rrez
+
+SumTotal = 37.62
+FirstName = Daan
+LastName = Peeters
+
+SumTotal = 37.62
+FirstName = Roberto
+LastName = Almeida
+
+SumTotal = 37.62
+FirstName = Frank
+LastName = Harris
+
+SumTotal = 37.62
+FirstName = Kathy
+LastName = Chase
+
+SumTotal = 37.62
+FirstName = John
+LastName = Gordon
+
+SumTotal = 37.62
+FirstName = Robert
+LastName = Brown
+
+SumTotal = 37.62
+FirstName = Ellie
+LastName = Sullivan
+
+SumTotal = 37.62
+FirstName = Enrique
+LastName = MuÃ±oz
+
+SumTotal = 37.62
+FirstName = Steve
+LastName = Murray
+
+SumTotal = 36.64
+FirstName = Puja
+LastName = Srivastava
+
+Finished OK
