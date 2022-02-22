@@ -35,6 +35,7 @@ void RunQuery(const string title, const string& sql, sqlite3& db)
 }
 
 
+
 int main()
 {
 	// Create the main window
