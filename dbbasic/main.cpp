@@ -119,5 +119,6 @@ At the end display the total income for the company, format “Final total=£9.99”.
 		window.display();
 	}
 
+
 	return EXIT_SUCCESS;
 }
